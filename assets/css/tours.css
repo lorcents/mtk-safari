@@ -1,0 +1,14 @@
+#tours {
+  background: url("../../assets/img/bg%20pic.jpg") center / auto round;
+  width: 100%;
+  height: auto;
+  color: #c9e8dd;
+  opacity: 1;
+  filter: blur(0px) brightness(100%) contrast(119%) grayscale(43%);
+}
+
+.projects-horizontal {
+  background: url("../../assets/img/bg%20pic.jpg") center / cover round, #ffffff;
+  font-family: Graduate, cursive;
+}
+
