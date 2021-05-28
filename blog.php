@@ -126,6 +126,9 @@
     <script src="assets/js/responsive-blog-card-slider-1.js"></script>
     <script src="assets/js/responsive-blog-card-slider.js"></script>
     <script src="assets/js/Swipe-Slider-9.js"></script>
+
+    <?php include('includes/signup.php');?>			
+    <?php include('includes/signin.php');?>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 28, 2021 at 09:34 AM
+-- Generation Time: May 28, 2021 at 02:43 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.15
 
@@ -51,6 +51,7 @@ INSERT INTO `admin` (`id`, `UserName`, `Password`, `updationDate`) VALUES
 CREATE TABLE `tblbooking` (
   `BookingId` int(11) NOT NULL,
   `PackageId` int(11) DEFAULT NULL,
+  `PackagePrice` int(11) DEFAULT NULL,
   `UserEmail` varchar(100) DEFAULT NULL,
   `FromDate` varchar(100) DEFAULT NULL,
   `ToDate` varchar(100) DEFAULT NULL,
@@ -65,13 +66,13 @@ CREATE TABLE `tblbooking` (
 -- Dumping data for table `tblbooking`
 --
 
-INSERT INTO `tblbooking` (`BookingId`, `PackageId`, `UserEmail`, `FromDate`, `ToDate`, `Comment`, `RegDate`, `status`, `CancelledBy`, `UpdationDate`) VALUES
-(1, 1, 'test@gmail.com', '2020-07-11', '2020-07-18', 'I want this package.', '2020-07-08 06:38:36', 2, 'u', '2020-07-08 06:53:45'),
-(2, 2, 'test@gmail.com', '2020-07-10', '2020-07-13', 'There is some discount', '2020-07-08 06:43:25', 1, NULL, '2020-07-08 06:52:44'),
-(3, 4, 'abir@gmail.com', '2020-07-11', '2020-07-15', 'When I get conformation', '2020-07-08 06:44:39', 2, 'a', '2020-07-08 06:49:55'),
-(4, 1, 'anuj@gmail.com', '2021-05-24', '2021-05-10', 'vv', '2021-05-24 15:24:26', 0, NULL, NULL),
-(5, 1, 'anuj@gmail.com', '2021-05-27', '2021-05-27', 'tt', '2021-05-27 08:06:22', 0, NULL, NULL),
-(6, 2, 'anuj@gmail.com', '2021-05-11', '2021-05-11', 'ccc', '2021-05-28 09:00:04', 0, NULL, NULL);
+INSERT INTO `tblbooking` (`BookingId`, `PackageId`, `PackagePrice`, `UserEmail`, `FromDate`, `ToDate`, `Comment`, `RegDate`, `status`, `CancelledBy`, `UpdationDate`) VALUES
+(1, 1, 60, 'test@gmail.com', '2020-07-11', '2020-07-18', 'I want this package.', '2020-07-08 03:38:36', 2, 'u', '2020-07-08 03:53:45'),
+(2, 2, 50, 'test@gmail.com', '2020-07-10', '2020-07-13', 'There is some discount', '2020-07-08 03:43:25', 1, NULL, '2020-07-08 03:52:44'),
+(3, 4, 100, 'abir@gmail.com', '2020-07-11', '2020-07-15', 'When I get conformation', '2020-07-08 03:44:39', 2, 'a', '2020-07-08 03:49:55'),
+(4, 1, 60, 'anuj@gmail.com', '2021-05-24', '2021-05-10', 'vv', '2021-05-24 12:24:26', 2, 'u', '2021-05-28 14:31:52'),
+(5, 1, 60, 'anuj@gmail.com', '2021-05-27', '2021-05-27', 'tt', '2021-05-27 05:06:22', 0, NULL, NULL),
+(6, 2, 50, 'anuj@gmail.com', '2021-05-11', '2021-05-11', 'ccc', '2021-05-28 06:00:04', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,8 @@ INSERT INTO `tblissues` (`id`, `UserEmail`, `Issue`, `Description`, `PostingDate
 (6, 'test@gmail.com', 'Booking Issues', 'I am not able to book package', '2020-07-08 06:36:03', 'Ok, We will fix the issue asap', '2020-07-08 06:55:22'),
 (7, 'test@gmail.com', 'Refund', 'I want my refund', '2020-07-08 06:56:29', NULL, NULL),
 (8, NULL, NULL, NULL, '2021-05-25 05:04:52', NULL, NULL),
-(9, NULL, NULL, NULL, '2021-05-25 05:05:17', NULL, NULL);
+(9, NULL, NULL, NULL, '2021-05-25 05:05:17', NULL, NULL),
+(10, NULL, NULL, NULL, '2021-05-28 11:57:33', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -219,12 +221,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblbooking`
---
-ALTER TABLE `tblbooking`
-  ADD PRIMARY KEY (`BookingId`);
-
---
 -- Indexes for table `tblenquiry`
 --
 ALTER TABLE `tblenquiry`
@@ -267,12 +263,6 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tblbooking`
---
-ALTER TABLE `tblbooking`
-  MODIFY `BookingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `tblenquiry`
 --
 ALTER TABLE `tblenquiry`
@@ -282,7 +272,7 @@ ALTER TABLE `tblenquiry`
 -- AUTO_INCREMENT for table `tblissues`
 --
 ALTER TABLE `tblissues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tblpages`

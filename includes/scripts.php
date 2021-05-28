@@ -7,3 +7,13 @@
     <script src="assets/js/responsive-blog-card-slider-1.js"></script>
     <script src="assets/js/responsive-blog-card-slider.js"></script>
     <script src="assets/js/Swipe-Slider-9.js"></script>
+
+    <script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--animate-->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>

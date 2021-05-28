@@ -28,67 +28,43 @@ include('includes/config.php');
 
           <!-- Shopping cart table -->
           <div class="table-responsive">
-            <table class="table">
-              <thead>
-                  <th colspan ="4">Cart (3)</th>
-                <tr>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="p-2 px-3 text-uppercase">Package</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Price</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">People</div>
-                  </th>
-                  <th scope="col" class="border-0 bg-light">
-                    <div class="py-2 text-uppercase">Remove</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" class="border-0">
-                    <div class="p-2">
-                      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-1_zrifhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                      <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Timex Unisex Originals</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Watches</span>
-                      </div>
-                    </div>
-                  </th>
-                  <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                  <td class="border-0 align-middle"><strong>3</strong></td>
-                  <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="p-2">
-                      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-3_cexmhn.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                      <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lumix camera lense</a></h5><span class="text-muted font-weight-normal font-italic">Category: Electronics</span>
-                      </div>
-                    </div>
-                  </th>
-                  <td class="align-middle"><strong>$79.00</strong></td>
-                  <td class="align-middle"><strong>3</strong></td>
-                  <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="p-2">
-                      <img src="https://res.cloudinary.com/mhmd/image/upload/v1556670479/product-2_qxjis2.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                      <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Gray Nike running shoe</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fashion</span>
-                      </div>
-                    </div>
-                    <td class="align-middle"><strong>$79.00</strong></td>
-                    <td class="align-middle"><strong>3</strong></td>
-                    <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
-              </tbody>
-            </table>
+
+
+
+          <table class="table">
+          <th colspan ="4">Cart </th>
+<tr align="center">
+
+<th scope="col" class="border-0 bg-light">#</th>
+<th scope="col" class="border-0 bg-light">Booking Id</th>
+<th scope="col" class="border-0 bg-light">Package Name</th>
+<th scope="col" class="border-0 bg-light">Package Price(USD)</th>	
+
+<th scope="col" class="border-0 bg-light">Remove</th>
+</tr>
+<?php 
+
+$uemail=$_SESSION['login'];;
+$sql = "SELECT tblbooking.BookingId as bookid,tblbooking.PackageId as pkgid,tblbooking.PackagePrice as pkgPrice,tbltourpackages.PackageName as packagename,tblbooking.FromDate as fromdate,tblbooking.ToDate as todate,tblbooking.Comment as comment,tblbooking.status as status,tblbooking.RegDate as regdate,tblbooking.CancelledBy as cancelby,tblbooking.UpdationDate as upddate from tblbooking join tbltourpackages on tbltourpackages.PackageId=tblbooking.PackageId where UserEmail=:uemail";
+$query = $dbh->prepare($sql);
+$query -> bindParam(':uemail', $uemail, PDO::PARAM_STR);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query->rowCount() > 0)
+{
+foreach($results as $result)
+{	?>
+<tr align="center">
+<td class="border-0 align-middle"><?php echo htmlentities($cnt);?></td>
+<td class="border-0 align-middle">#BK<?php echo htmlentities($result->bookid);?></td>
+<td class="border-0 align-middle"><a href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a></td>
+<td class="border-0 align-middle"><?php echo htmlentities($result->pkgPrice);?></td>
+<td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+
+<?php $cnt=$cnt+1; }} ?>
+	</table>
+
           </div>
           <!-- End -->
         </div>
@@ -98,13 +74,13 @@ include('includes/config.php');
         <div class="col-lg-6">
           <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
           <div class="p-4">
-            <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+            <p class="font-italic mb-4">Tax is 10 percent of total.</p>
             <ul class="list-unstyled mb-4">
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$170.00</strong></li>
+
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$17.00</strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">$400.00</h5>
+                <h5 class="font-weight-bold">$187.00</h5>
               </li>
             </ul><p style="text-align:center">Pay With</p>
             <!--Paypal Payment button-->
@@ -133,6 +109,10 @@ include('includes/config.php');
     <script src="js/payment.js"></script>
 
     <?php include('includes/footer.php');?>
+    <?php include('includes/signup.php');?>			
+
+<!-- signin -->
+<?php include('includes/signin.php');?>	
 
 </body>
 

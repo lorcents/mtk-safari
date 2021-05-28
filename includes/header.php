@@ -13,6 +13,7 @@
 			<li class="tol">Welcome :</li>				
 			<li class="sig"><?php echo htmlentities($_SESSION['login']);?></li> 
 			<li class="sigi"><a href="logout.php" >/ Logout</a></li>
+			<li class="sigi">   ||   <a href="cart.php"><i class="fa fa-shopping-bag">Cart</i></a></li>
         </ul>
 		<div class="clearfix"></div>
 	</div>
