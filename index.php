@@ -57,7 +57,7 @@ include('includes/config.php');
                         <h3 data-animation="animated flipInX">Hello Coast</h3>
                         <h1 data-animation="animated flipInX"><span>Diani,</span> Mombasa</h1>
                         <p data-animation="animated flipInX">From 10th to 15th April,2021</p>
-                        <a href="#" data-animation="animated flipInX">Book Now!</a>
+                        <a href="package-list.php" data-animation="animated flipInX">Book Now!</a>
                     </div>
                 </div>
                 <!-- End of Slide -->
@@ -73,7 +73,7 @@ include('includes/config.php');
                         <h3 data-animation="animated flipInX">Flamingos, here we come</h3>
                         <h1 data-animation="animated flipInX"><span>Nakuru Trip,</span> Nakuru National Park</h1>
                         <p data-animation="animated flipInX">27th to 30th July,2021</p>
-                        <a href="#" data-animation="animated flipInX">Book Now!</a>
+                        <a href="package-list.php" data-animation="animated flipInX">Book Now!</a>
                     </div>
                 </div>
                 <!-- End of Slide -->
@@ -89,7 +89,7 @@ include('includes/config.php');
                         <h3 data-animation="animated flipInX">A Park in the City</h3>
                         <h1 data-animation="animated flipInX"><span>Touring Nairobi,</span> Park & Ophanage </h1>
                         <p data-animation="animated flipInX">5th to 7th August,2021</p>
-                        <a href="#" data-animation="animated flipInX">Book Now</a>
+                        <a href="package-list.php" data-animation="animated flipInX">Book Now</a>
                     </div>
                 </div>
                 <!-- End of Slide -->
