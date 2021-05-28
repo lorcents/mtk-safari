@@ -11,7 +11,7 @@ Open Your browser put inside browser �http://localhost/Mtk-safari�
 Login Details for admin : 
 Open Your browser put inside browser �http://localhost/Mtk-safari/admin�
 Username : admin
-Password : Test@123
+Password : Password
 
  Test Login Details for user: 
 
