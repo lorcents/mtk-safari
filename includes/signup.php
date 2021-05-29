@@ -1,7 +1,7 @@
 <?php 
 session_start();
 error_reporting(0);
-include('includes/dbconnection.php');
+include('includes/config.php');
 if(isset($_POST['submit']))
   {
     $fname=$_POST['fname'];
@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     $results = $query -> fetchAll(PDO::FETCH_OBJ);
 if($query -> rowCount() == 0)
 {
-$sql="Insert Into tbluser(FullName,MobileNumber,Email,Password)Values(:fname,:mobno,:email,:password)";
+$sql="Insert Into tbluser(FullName,MobileNumber,EmailId,Password)Values(:fname,:mobno,:email,:password)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':email',$email,PDO::PARAM_STR);

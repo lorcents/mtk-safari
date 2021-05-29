@@ -15,21 +15,26 @@ paypal.Buttons({
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
             //Sending to PHP
-            const payment_json = JSON.stringify(details);
-            $.ajax({
-                type: 'POST',
-                url: 'payment.php',
-                data: 'payment_json',
-                success: function(response) {
-                    alert('Payment made successfully');
-                    //window.location.replace('http://localhost/Mtk-safari/payment.php');
-                    console.log(details)
+            const payment_details = {
+                id: details.id,
+                payer_email: details.payer.email_address,
+                payer_id: details.payer.payer_id,
+                fname: details.payer.name.given_name,
+                lname: details.payer.name.surname,
+                amount: details.purchase_units[0].amount.value,
+                status: details.status,
+                time: details.update_time
+
+            };
+            const payment_json = JSON.stringify(payment_details);
+            $.post("payment.php",{payment_json},function(data){
+                if(data === "Your payment was received Successfully!"){
+                    alert(data);
+                    window.location.replace('http://localhost/mtk-safari/tour-history.php');
+                }else{
+                    alert(data);
                 }
             });
-
-            /*console.log(details);
-            alert('Payment made successfully')
-            window.location.replace('http://localhost/mtk/')*/
         })
     },
     onCancel: function(data) {

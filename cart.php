@@ -2,6 +2,11 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+
+if(!$_SESSION['login']){
+  echo "<script>alert('Please login in to access your cart')</script>";
+  header("Location: /index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
