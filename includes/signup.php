@@ -8,14 +8,14 @@ if(isset($_POST['submit']))
     $mobno=$_POST['mobno'];
     $email=$_POST['email'];
     $password=md5($_POST['password']);
-    $ret="select Email from tbluser where Email=:email";
+    $ret="select EmailId from tblusers where EmailId=:email";
     $query= $dbh -> prepare($ret);
     $query-> bindParam(':email', $email, PDO::PARAM_STR);
     $query-> execute();
     $results = $query -> fetchAll(PDO::FETCH_OBJ);
 if($query -> rowCount() == 0)
 {
-$sql="Insert Into tbluser(FullName,MobileNumber,EmailId,Password)Values(:fname,:mobno,:email,:password)";
+$sql="Insert Into tblusers(FullName,MobileNumber,EmailId,Password)Values(:fname,:mobno,:email,:password)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':email',$email,PDO::PARAM_STR);

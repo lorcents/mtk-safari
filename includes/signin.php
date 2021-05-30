@@ -53,6 +53,7 @@ echo "<script type='text/javascript'> document.location = 'package-list.php'; </
 									<div class="clearfix"></div>								
 								</div>
 								<p>By logging in you agree to our <a href="page.php?type=terms">Terms and Conditions</a> and <a href="page.php?type=privacy">Privacy Policy</a></p>
+								<li class="sig"><a href="#" data-toggle="modal" data-target="#myModal" >Sign Up</a></li> 
 							</div>
 						</div>
 					</div>
