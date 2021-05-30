@@ -1,5 +1,9 @@
 
-
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,25 +23,25 @@
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Team </h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+                <p class="text-center"> We're glad to be able to come up with a platform that best suites the needs of our clients. This is a game changer. Lets have fun! </p>
             </div>
             <div class="row people">
-                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/1.jpg">
-                    <h3 class="name">Ben Johnson</h3>
-                    <p class="title">Musician</p>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
+                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/11.jpg">
+                    <h3 class="name">Ian Njoroge</h3>
+                    <p class="title">Co Founder </p>
+                    <p class="description"> I'm delighted to build a game changing platform that will be of great impact and help in the society. </p>
                     <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
                 </div>
-                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/2.jpg">
-                    <h3 class="name">Emily Clark</h3>
-                    <p class="title">Artist</p>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
+                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/22.jpg">
+                    <h3 class="name">Harun Muriiki</h3>
+                    <p class="title">Co Founder</p>
+                    <p class="description">It's been such an honour and experience to work on this platform. It's has helped me think out of the box to come up with ideas that will fix the hiccups that has been there before.  </p>
                     <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
                 </div>
-                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/3.jpg">
-                    <h3 class="name">Carl Kent</h3>
-                    <p class="title">Stylist</p>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
+                <div class="col-md-6 col-lg-4 item"><img class="rounded-circle" src="assets/img/33.jpg">
+                    <h3 class="name">Reuben Khaemba</h3>
+                    <p class="title">Co Founder</p>
+                    <p class="description">Team work has always been my all time favourite, working together with great minds is just amazing. </p>
                     <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
                 </div>
             </div>
@@ -55,34 +59,34 @@
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Testimonials </h2>
-                <p class="text-center">Our customers love us! Read what they have to say below. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.</p>
+                <p class="text-center">Our customers love us! Read what they have to say below. We take pride in our seamless, flawless, and state-of-the-art service delivery.</p>
             </div>
             <div class="row people">
                 <div class="col-md-6 col-lg-4 item">
                     <div class="box">
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                        <p class="description">After a terrible experience booking a holiday package for myself, MTK safari came through for me and I had an amazing time, it was such refreshing and enjoyable to get an amazing time off. Many thanks to MTK fraternity.</p>
                     </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/1.jpg">
-                        <h5 class="name">Ben Johnson</h5>
-                        <p class="title">CEO of Company Inc.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 item">
-                    <div class="box">
-                        <p class="description">Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id.</p>
-                    </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/3.jpg">
-                        <h5 class="name">Carl Kent</h5>
-                        <p class="title">Founder of Style Co.</p>
+                    <div class="author"><img class="rounded-circle" src="assets/img/10.jpg">
+                        <h5 class="name">Bennie Lumumba</h5>
+                        <p class="title">CEO of Goodwill Inc.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 item">
                     <div class="box">
-                        <p class="description">Aliquam varius finibus est, et interdum justo suscipit. Vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                        <p class="description">I've never had a holiday vacation so flawless and exquisite like this one from MTK, you guys are awesome, looking forward to many more vacations together.</p>
                     </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/2.jpg">
-                        <h5 class="name">Emily Clark</h5>
-                        <p class="title">Owner of Creative Ltd.</p>
+                    <div class="author"><img class="rounded-circle" src="assets/img/30.jpg">
+                        <h5 class="name">Cheryl Grace</h5>
+                        <p class="title">Founder of Grace Beauty & Co.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box">
+                        <p class="description">This is the best Holiday I have ever had in my entire lifetime courtesy of MTK tours. I just fell in love with all the activities and packages you offered. Great work Team MTk.</p>
+                    </div>
+                    <div class="author"><img class="rounded-circle" src="assets/img/20.jpg">
+                        <h5 class="name">Mary Wanjiru</h5>
+                        <p class="title">Owner of Lifestyle Ltd.</p>
                     </div>
                 </div>
             </div>

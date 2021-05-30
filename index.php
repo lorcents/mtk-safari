@@ -202,29 +202,29 @@ foreach($results as $result)
             <div class="row people">
                 <div class="col-md-6 col-lg-4 item">
                     <div class="box">
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                        <p class="description">After a terrible experience booking a holiday package for myself, MTK safari came through for me and I had an amazing time, it was such refreshing and enjoyable to get an amazing time off. Many thanks to MTK fraternity.</p>
                     </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/1.jpg">
-                        <h5 class="name">Ben Johnson</h5>
-                        <p class="title">CEO of Company Inc.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 item">
-                    <div class="box">
-                        <p class="description">Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id.</p>
-                    </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/3.jpg">
-                        <h5 class="name">Carl Kent</h5>
-                        <p class="title">Founder of Style Co.</p>
+                    <div class="author"><img class="rounded-circle" src="assets/img/10.jpg">
+                        <h5 class="name">Bennie Lumumba</h5>
+                        <p class="title">CEO of Goodwill Inc.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 item">
                     <div class="box">
-                        <p class="description">Aliquam varius finibus est, et interdum justo suscipit. Vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p>
+                        <p class="description">I've never had a holiday vacation so flawless and exquisite like this one from MTK, you guys are awesome, looking forward to many more vacations together.</p>
                     </div>
-                    <div class="author"><img class="rounded-circle" src="assets/img/2.jpg">
-                        <h5 class="name">Emily Clark</h5>
-                        <p class="title">Owner of Creative Ltd.</p>
+                    <div class="author"><img class="rounded-circle" src="assets/img/30.jpg">
+                        <h5 class="name">Cheryl Grace</h5>
+                        <p class="title">Founder of Grace Beauty & Co.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box">
+                        <p class="description">This is the best Holiday I have ever had in my entire lifetime courtesy of MTK tours. I just fell in love with all the activities and packages you offered. Great work Team MTk.</p>
+                    </div>
+                    <div class="author"><img class="rounded-circle" src="assets/img/20.jpg">
+                        <h5 class="name">Mary Wanjiru</h5>
+                        <p class="title">Owner of Lifestyle Ltd.</p>
                     </div>
                 </div>
             </div>
