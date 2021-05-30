@@ -8,21 +8,22 @@ if(!$_SESSION['login']){
   header("Location: index.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>MTK | Cart</title>
-    <?php include('includes/links.php');?>
-</head>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+      <title>MTK | Cart</title>
+      <?php include('includes/links.php');?>
+  </head>
 
-<body style="font-size: 20px;">
-    <section>
+  <body>
+      <section>
+      <?php include('includes/header.php');?>
+      </section>
 
-    <?php include('includes/header.php');?>
-    </section>
   <section id="cart"><div class="shopping-cart">
   <div class="px-4 px-lg-0">
 
@@ -90,11 +91,16 @@ foreach($results as $result)
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                 <h5 class="font-weight-bold"><?php $total = $amount + $tax; echo "USD $total"; ?></h5>
               </li>
+              <?php if(!$total < 1){ ?>
             </ul><p style="text-align:center">Pay With</p>
             <!--Paypal Payment button-->
-            <div id="paypal-button" type ="button"  <?php echo "disabled" ?> ></div>
+            
+            <div id="paypal-button" type ="button" ></div>
             <div style="text-align:center">Or</div>
             <div class="rounded-pill" type='button' id="mpesa-button" style="color: white; background-color:green;shape:pill; text-align:center" onclick = "mpesa()" >M-Pesa</div>
+            <?php }else{ ?>
+            <div> Nothing in your cart. Want to <a href="package-list.php">Book Now</a>?</div>
+            <?php } ?>
           </div>
         </div>
       </div>

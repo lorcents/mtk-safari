@@ -27,24 +27,15 @@ paypal.Buttons({
 
             };
             const payment_json = JSON.stringify(payment_details);
-<<<<<<< Updated upstream
             $.post("payment.php",{payment_json},function(data){
-                if(data === "Your payment was received Successfully!"){
-=======
-            $.post("payment.php", { payment_json }, function(data) {
                 /*if(data === "Your payment was received Successfully!"){
->>>>>>> Stashed changes
                     alert(data);
                     window.location.replace('http://localhost/mtk-safari/tour-history.php');
                 }else{
                     alert(data);
-<<<<<<< Updated upstream
-                }
-=======
                 }*/
-                alert(data);
+                alert (data);
                 console.log(payment_details);
->>>>>>> Stashed changes
             });
         })
     },
