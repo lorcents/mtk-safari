@@ -5,7 +5,7 @@ include('includes/config.php');
 
 if(!$_SESSION['login']){
   echo "<script>alert('Please login in to access your cart')</script>";
-  header("Location: /index.php");
+  header("Location: index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,10 @@ foreach($results as $result)
 <td class="border-0 align-middle"><?php echo htmlentities($result->pkgPrice);?></td>
 <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
 
-<?php $cnt=$cnt+1; }} ?>
+<?php
+    $amount += $result->pkgPrice;
+    $cnt=$cnt+1; }} 
+?>
 	</table>
 
           </div>
@@ -81,15 +84,15 @@ foreach($results as $result)
           <div class="p-4">
             <p class="font-italic mb-4">Tax is 10 percent of total.</p>
             <ul class="list-unstyled mb-4">
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$170.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong><?php echo "USD $amount"; ?></strong></li>
 
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$17.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong><?php $tax = $amount*0.1; echo "USD $tax"; ?></strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">$187.00</h5>
+                <h5 class="font-weight-bold"><?php $total = $amount + $tax; echo "USD $total"; ?></h5>
               </li>
             </ul><p style="text-align:center">Pay With</p>
             <!--Paypal Payment button-->
-            <div id="paypal-button"></div>
+            <div id="paypal-button" type ="button"  <?php echo "disabled" ?> ></div>
             <div style="text-align:center">Or</div>
             <div class="rounded-pill" type='button' id="mpesa-button" style="color: white; background-color:green;shape:pill; text-align:center" onclick = "mpesa()" >M-Pesa</div>
           </div>
