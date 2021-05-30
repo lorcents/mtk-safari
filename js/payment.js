@@ -28,12 +28,14 @@ paypal.Buttons({
             };
             const payment_json = JSON.stringify(payment_details);
             $.post("payment.php",{payment_json},function(data){
-                if(data === "Your payment was received Successfully!"){
+                /*if(data === "Your payment was received Successfully!"){
                     alert(data);
                     window.location.replace('http://localhost/mtk-safari/tour-history.php');
                 }else{
                     alert(data);
-                }
+                }*/
+                alert (data);
+                //console.log(payment_details);
             });
         })
     },
