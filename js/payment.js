@@ -35,7 +35,7 @@ paypal.Buttons({
                     alert(data);
                 }*/
                 alert (data);
-                //console.log(payment_details);
+                console.log(payment_details);
             });
         })
     },

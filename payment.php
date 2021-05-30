@@ -5,7 +5,7 @@ if(!$_SESSION['login']){
 
 }else{
     include('includes/config.php');
-if(isset ($_POST['payment_json'])){
+    if(isset ($_POST['payment_json'])){
     $payment_details = $_POST['payment_json'];
     $payment_json = json_decode($payment_details,true);
     //variables
@@ -34,17 +34,20 @@ if(isset ($_POST['payment_json'])){
         $result = $query->execute();
         
             if($result === TRUE){
-                /*/Take info from booking table
+                //Take info from booking table
                 $sql_book = "SELECT 'PackageId' from tblbooking WHERE UserEmail ='$user_email' ";
                 $query_book = $dbh->prepare($sql_book);
                 $result_book = $query_book->execute();
                 $results=$query_book->fetchAll(PDO::FETCH_OBJ);
                 $cnt=1;
+                /*if($query_book->rowCount() > 0){
+                   echo "booking exists"; 
+                }*/
                 if($query_book->rowCount() > 0){
                     foreach($results as $val){
                         //populate orders table
-                        $_date =date("d/m/Y");
-                        $sql_order="INSERT INTO tblorders(,packageid,paymentid,user_email,_date)VALUES(:packageid,:paymentid,:user_email,:_date)";
+                        $_date = date("d/m/Y");
+                        $sql_order="INSERT INTO tblorders(packageid,paymentid,user_email,_date)VALUES(:packageid,:paymentid,:user_email,:_date)";
                         $query_order = $dbh->prepare($sql_order);
                         $query_order->bindParam(':packageid',$val->PackageId,PDO::PARAM_STR);
                         $query_order->bindParam(':paymentid',$payer_id,PDO::PARAM_STR);
@@ -55,8 +58,7 @@ if(isset ($_POST['payment_json'])){
                     if($result_book && $result_orders === TRUE){
                         echo "Your payment was received Successfully!";
                     }
-                }/*/
-                echo "Your payment was received Successfully!";
+                }//echo "Your payment was received Successfully!";
             }else{
             echo "Something went wrong.Please try again. Contact us for help";
             }
