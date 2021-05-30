@@ -8,6 +8,7 @@
     <script src="assets/js/responsive-blog-card-slider.js"></script>
     <script src="assets/js/Swipe-Slider-9.js"></script>
 
+    <script src="assets/js/Faq-by-pomdre.js"></script>
     <script src="js/jquery-1.12.0.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <!--animate-->

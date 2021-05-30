@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4 footer-navigation">
                     <h3><a href="#">MTK<span style="background: url(&quot;assets/img/logo.jpg&quot;) center / contain no-repeat;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></a></h3>
-                    <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                    <p class="links"><a href="index.php">Home</a><strong> · </strong><a href="blog.php">Blog</a><strong> · </strong><a href="package-list.php">Packages</a><strong> · </strong><a href="about.php">About</a><strong> · </strong><a href="faq.php">Faq</a><strong> · </strong><a href="enquiry.php">Contact</a></p>
                     <p class="company-name">MTK Tours &amp; Travel © 2021</p>
                 </div>
                 <div class="col-sm-6 col-md-4 footer-contacts">
