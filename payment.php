@@ -19,7 +19,7 @@ if(!$_SESSION['login']){
     $status = $payment_json['status'];
     $time = $payment_json['time'];
 
-    if($status === "COMPLETED"){
+    if($status == "COMPLETED"){
         $sql="Insert Into tblpayment(id,user_email,payer_email,payer_id,fname,lname,amount,status,time)Values(:id,:user_email,:payer_email,:payer_id,:fname,:lname,:amount,:status,:time)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':id',$id,PDO::PARAM_STR);
