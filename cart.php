@@ -66,7 +66,21 @@ foreach($results as $result)
 <td class="border-0 align-middle">#BK<?php echo htmlentities($result->bookid);?></td>
 <td class="border-0 align-middle"><a href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a></td>
 <td class="border-0 align-middle"><?php echo htmlentities($result->pkgPrice);?></td>
-<td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+<td class="border-0 align-middle"><form method="post" class="text-dark"><i type ="submit" class="fa fa-trash"></i></form></td>
+<?php
+    if(isset($_POST['submit'])){
+      //delete a record from booking to clear the cart
+      $sql_del = "DELETE FROM tblbooking WHERE PackageId = :packageid AND UserEmail = :user_email";
+      $query_del = $dbh->prepare($sql_del);
+      $query_del->bindParam(':packageid',$result->pkgid,PDO::PARAM_INT);
+      $query_del->bindParam(':user_email',$uemail,PDO::PARAM_STR);
+      $result_del = $query_del->execute();
+
+      if($result_del){
+        echo "<script>alert('Record deleted successfully')</script>";
+      }
+    }
+ ?>
 
 <?php
     $amount += $result->pkgPrice;

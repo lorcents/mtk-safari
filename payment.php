@@ -35,8 +35,9 @@ if(!$_SESSION['login']){
         
             if($result === TRUE){
                 //Take info from booking table
-                $sql_book = "SELECT 'PackageId' from tblbooking WHERE UserEmail ='$user_email' ";
+                $sql_book = "SELECT PackageId from tblbooking WHERE UserEmail =:user_email";
                 $query_book = $dbh->prepare($sql_book);
+                $query_book->bindParam(':user_email',$user_email,PDO::PARAM_STR);
                 $result_book = $query_book->execute();
                 $results=$query_book->fetchAll(PDO::FETCH_OBJ);
                 $cnt=1;
@@ -47,15 +48,22 @@ if(!$_SESSION['login']){
                     foreach($results as $val){
                         //populate orders table
                         $_date = date("d/m/Y");
+                        $packageid = $val->PackageId;
                         $sql_order="INSERT INTO tblorders(packageid,paymentid,user_email,_date)VALUES(:packageid,:paymentid,:user_email,:_date)";
                         $query_order = $dbh->prepare($sql_order);
-                        $query_order->bindParam(':packageid',$val->PackageId,PDO::PARAM_STR);
+                        $query_order->bindParam(':packageid',$packageid,PDO::PARAM_INT);
                         $query_order->bindParam(':paymentid',$payer_id,PDO::PARAM_STR);
                         $query_order->bindParam(':user_email',$user_email,PDO::PARAM_STR);
                         $query_order->bindParam(':_date',$_date,PDO::PARAM_STR);
                         $result_orders = $query_order->execute();
+                        //delete records from booking to clear the cart
+                        $sql_del = "DELETE FROM tblbooking WHERE PackageId = :packageid AND UserEmail = :user_email";
+                        $query_del = $dbh->prepare($sql_del);
+                        $query_del->bindParam(':packageid',$packageid,PDO::PARAM_INT);
+                        $query_del->bindParam(':user_email',$user_email,PDO::PARAM_STR);
+                        $result_del = $query_del->execute();
                     }
-                    if($result_book && $result_orders === TRUE){
+                    if($result_book && $result_orders && $result_del === TRUE){
                         echo "Your payment was received Successfully!";
                     }
                 }//echo "Your payment was received Successfully!";
