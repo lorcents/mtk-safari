@@ -119,8 +119,14 @@ include('includes/config.php');
       <!-- Column -->
     </div>
   </div>
-</div></section>
+</div>
+
+</section>
+
 <?php include('includes/footer.php');?>
+<?php include('includes/signup.php');?>			
+    <?php include('includes/signin.php');?>
+    <?php include('includes/scripts.php');?>
     </section>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -132,8 +138,7 @@ include('includes/config.php');
     <script src="assets/js/responsive-blog-card-slider.js"></script>
     <script src="assets/js/Swipe-Slider-9.js"></script>
 
-    <?php include('includes/signup.php');?>			
-    <?php include('includes/signin.php');?>
+    
 </body>
 
 </html>

@@ -72,7 +72,7 @@ return true;
 												</ul>
 											</div>
 											<div class="login-right">
-									<div class="login-right">
+									
 												<form id="signup" name="signup" action="" method="post" onsubmit="return checkpass();">
 													<h3>Create your account </h3>
 													<input type="text" required='true' name="fname" placeholder=" Full Name">
