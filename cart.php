@@ -136,14 +136,14 @@ foreach($results as $result)
 </section>
     <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/bs-init.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="https://unpkg.com/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
-    <script src="../assets/js/responsive-blog-card-slider-1.js"></script>
-    <script src="../assets/js/responsive-blog-card-slider.js"></script>
-    <script src="../assets/js/Swipe-Slider-9.js"></script>
+    <script src="assets/js/responsive-blog-card-slider-1.js"></script>
+    <script src="assets/js/responsive-blog-card-slider.js"></script>
+    <script src="assets/js/Swipe-Slider-9.js"></script>
     <!--Paypal-->
     <script src="https://www.paypal.com/sdk/js?client-id=AY-uotNqidCiQoRJcWvPc7snk5qtwtzuaJNfM_TDzjB0kJfrJqgZStTb6swbcjPFF1U4ysapwRyl57Gz&disable-funding=credit,card"></script>
     <script src="js/payment.js"></script>

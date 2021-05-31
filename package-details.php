@@ -146,12 +146,12 @@ foreach($results as $result)
 					<?php if($_SESSION['login'])
 					{?>
 						<li class="spe" align="center">
-					<button type="submit" name="submit2" class="btn-primary btn">Book</button>
-					<button  class="btn-primary btn"><a href="cart.php" style="color: wheat;">Check Out</a></button>
+					<button type="submit" name="submit2" class="btn-primary btn" style="color: green;">Book</button>
+					<button  class="btn-primary btn"><a href="cart.php" style="color: green;" >Check Out</a></button>
 						</li>
 						<?php } else {?>
 							<li class="sigi" align="center" style="margin-top: 1%">
-							<a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn" > Book</a>
+							<a href="#" data-toggle="modal" data-target="#myModal4" class="btn-primary btn" style="color: green;" > Book</a>
 							
 						
 							
