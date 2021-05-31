@@ -1,6 +1,7 @@
 function getamount(){
-    const amount = document.getElementById('#amount').innerHTML;
-    console.log(amount);
+    const amount = document.getElementById('amount').innerHTML;
+    return amount.slice(4);
+    //console.log(value);
 }
 paypal.Buttons({
     style: {
@@ -11,7 +12,7 @@ paypal.Buttons({
         return actions.order.create({
             purchase_units: [{
                 amount: {
-                    value: '10'
+                    value: getamount()
                 }
             }]
         });

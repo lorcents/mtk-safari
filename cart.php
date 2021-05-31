@@ -37,7 +37,7 @@ if(!$_SESSION['login']){
 		</style>
   </head>
 
-  <body >
+  <body onload="getamount()" >
       <section>
       <?php include('includes/header.php');?>
       </section>

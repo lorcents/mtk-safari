@@ -2,10 +2,10 @@
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 28, 2021 at 02:43 PM
--- Server version: 8.0.18
--- PHP Version: 7.3.15
+-- Host: 127.0.0.1
+-- Generation Time: May 31, 2021 at 10:14 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -55,11 +55,11 @@ CREATE TABLE `tblbooking` (
   `UserEmail` varchar(100) DEFAULT NULL,
   `FromDate` varchar(100) DEFAULT NULL,
   `ToDate` varchar(100) DEFAULT NULL,
-  `Comment` mediumtext,
-  `RegDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `Comment` mediumtext DEFAULT NULL,
+  `RegDate` timestamp NULL DEFAULT current_timestamp(),
   `status` int(11) DEFAULT NULL,
   `CancelledBy` varchar(5) DEFAULT NULL,
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -70,9 +70,7 @@ INSERT INTO `tblbooking` (`BookingId`, `PackageId`, `PackagePrice`, `UserEmail`,
 (1, 1, 60, 'test@gmail.com', '2020-07-11', '2020-07-18', 'I want this package.', '2020-07-08 03:38:36', 2, 'u', '2020-07-08 03:53:45'),
 (2, 2, 50, 'test@gmail.com', '2020-07-10', '2020-07-13', 'There is some discount', '2020-07-08 03:43:25', 1, NULL, '2020-07-08 03:52:44'),
 (3, 4, 100, 'abir@gmail.com', '2020-07-11', '2020-07-15', 'When I get conformation', '2020-07-08 03:44:39', 2, 'a', '2020-07-08 03:49:55'),
-(4, 1, 60, 'anuj@gmail.com', '2021-05-24', '2021-05-10', 'vv', '2021-05-24 12:24:26', 2, 'u', '2021-05-28 14:31:52'),
-(5, 1, 60, 'anuj@gmail.com', '2021-05-27', '2021-05-27', 'tt', '2021-05-27 05:06:22', 0, NULL, NULL),
-(6, 2, 50, 'anuj@gmail.com', '2021-05-11', '2021-05-11', 'ccc', '2021-05-28 06:00:04', 0, NULL, NULL);
+(17, 3, 50, 'harorykz@gmail.com', '2021-05-28', '2021-05-11', 'to Mt. Kenya', '2021-05-31 04:39:18', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -86,8 +84,8 @@ CREATE TABLE `tblenquiry` (
   `EmailId` varchar(100) DEFAULT NULL,
   `MobileNumber` char(10) DEFAULT NULL,
   `Subject` varchar(100) DEFAULT NULL,
-  `Description` mediumtext,
-  `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `Description` mediumtext DEFAULT NULL,
+  `PostingDate` timestamp NULL DEFAULT current_timestamp(),
   `Status` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -111,10 +109,10 @@ CREATE TABLE `tblissues` (
   `id` int(11) NOT NULL,
   `UserEmail` varchar(100) DEFAULT NULL,
   `Issue` varchar(100) DEFAULT NULL,
-  `Description` mediumtext,
-  `PostingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `AdminRemark` mediumtext,
-  `AdminremarkDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `Description` mediumtext DEFAULT NULL,
+  `PostingDate` timestamp NULL DEFAULT current_timestamp(),
+  `AdminRemark` mediumtext DEFAULT NULL,
+  `AdminremarkDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -131,7 +129,26 @@ INSERT INTO `tblissues` (`id`, `UserEmail`, `Issue`, `Description`, `PostingDate
 (7, 'test@gmail.com', 'Refund', 'I want my refund', '2020-07-08 06:56:29', NULL, NULL),
 (8, NULL, NULL, NULL, '2021-05-25 05:04:52', NULL, NULL),
 (9, NULL, NULL, NULL, '2021-05-25 05:05:17', NULL, NULL),
-(10, NULL, NULL, NULL, '2021-05-28 11:57:33', NULL, NULL);
+(10, NULL, NULL, NULL, '2021-05-28 11:57:33', NULL, NULL),
+(11, NULL, NULL, NULL, '2021-05-29 07:57:20', NULL, NULL),
+(12, NULL, NULL, NULL, '2021-05-29 10:53:07', NULL, NULL),
+(13, NULL, NULL, NULL, '2021-05-29 11:25:55', NULL, NULL),
+(14, NULL, NULL, NULL, '2021-05-30 17:51:43', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblorders`
+--
+
+CREATE TABLE `tblorders` (
+  `orderid` int(11) NOT NULL,
+  `packageid` int(11) NOT NULL,
+  `paymentid` varchar(50) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `_date` date NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -142,7 +159,7 @@ INSERT INTO `tblissues` (`id`, `UserEmail`, `Issue`, `Description`, `PostingDate
 CREATE TABLE `tblpages` (
   `id` int(11) NOT NULL,
   `type` varchar(255) DEFAULT '',
-  `detail` longtext
+  `detail` longtext DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -158,6 +175,24 @@ INSERT INTO `tblpages` (`id`, `type`, `detail`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblpayment`
+--
+
+CREATE TABLE `tblpayment` (
+  `id` varchar(50) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `payer_email` varchar(70) NOT NULL,
+  `payer_id` varchar(50) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `amount` float NOT NULL,
+  `status` varchar(25) NOT NULL,
+  `time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbltourpackages`
 --
 
@@ -168,10 +203,10 @@ CREATE TABLE `tbltourpackages` (
   `PackageLocation` varchar(100) DEFAULT NULL,
   `PackagePrice` int(11) DEFAULT NULL,
   `PackageFetures` varchar(255) DEFAULT NULL,
-  `PackageDetails` mediumtext,
+  `PackageDetails` mediumtext DEFAULT NULL,
   `PackageImage` varchar(100) DEFAULT NULL,
-  `Creationdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `Creationdate` timestamp NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -198,8 +233,8 @@ CREATE TABLE `tblusers` (
   `MobileNumber` char(10) DEFAULT NULL,
   `EmailId` varchar(70) DEFAULT NULL,
   `Password` varchar(100) DEFAULT NULL,
-  `RegDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `RegDate` timestamp NULL DEFAULT current_timestamp(),
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -208,7 +243,8 @@ CREATE TABLE `tblusers` (
 
 INSERT INTO `tblusers` (`id`, `FullName`, `MobileNumber`, `EmailId`, `Password`, `RegDate`, `UpdationDate`) VALUES
 (4, 'Abir', '4789756456', 'abir@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-08 06:34:38', NULL),
-(5, 'Ian', '0740925341', 'anuj@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2020-07-08 06:35:06', '2021-05-25 05:08:08');
+(5, 'Ian', '0740925341', 'anuj@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2020-07-08 06:35:06', '2021-05-25 05:08:08'),
+(8, 'Harun Ntogaiti', '720281543', 'harorykz@gmail.com', '1b96b67922a23246768fc7952de7ae3e', '2021-05-30 17:51:43', NULL);
 
 --
 -- Indexes for dumped tables
@@ -219,6 +255,12 @@ INSERT INTO `tblusers` (`id`, `FullName`, `MobileNumber`, `EmailId`, `Password`,
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tblbooking`
+--
+ALTER TABLE `tblbooking`
+  ADD PRIMARY KEY (`BookingId`);
 
 --
 -- Indexes for table `tblenquiry`
@@ -233,9 +275,21 @@ ALTER TABLE `tblissues`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tblorders`
+--
+ALTER TABLE `tblorders`
+  ADD PRIMARY KEY (`orderid`);
+
+--
 -- Indexes for table `tblpages`
 --
 ALTER TABLE `tblpages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tblpayment`
+--
+ALTER TABLE `tblpayment`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -263,6 +317,12 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `tblbooking`
+--
+ALTER TABLE `tblbooking`
+  MODIFY `BookingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `tblenquiry`
 --
 ALTER TABLE `tblenquiry`
@@ -272,7 +332,13 @@ ALTER TABLE `tblenquiry`
 -- AUTO_INCREMENT for table `tblissues`
 --
 ALTER TABLE `tblissues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `tblorders`
+--
+ALTER TABLE `tblorders`
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tblpages`
@@ -290,7 +356,7 @@ ALTER TABLE `tbltourpackages`
 -- AUTO_INCREMENT for table `tblusers`
 --
 ALTER TABLE `tblusers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
