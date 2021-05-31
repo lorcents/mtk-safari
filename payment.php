@@ -47,7 +47,7 @@ if(!$_SESSION['login']){
                 if($query_book->rowCount() > 0){
                     foreach($results as $val){
                         //populate orders table
-                        $_date = date("d/m/Y");
+                        $_date = date("Y/d/m");
                         $packageid = $val->PackageId;
                         $sql_order="INSERT INTO tblorders(packageid,paymentid,user_email,_date)VALUES(:packageid,:paymentid,:user_email,:_date)";
                         $query_order = $dbh->prepare($sql_order);
