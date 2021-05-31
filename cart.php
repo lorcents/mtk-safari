@@ -17,9 +17,27 @@ if(!$_SESSION['login']){
       <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
       <title>MTK | Cart</title>
       <?php include('includes/links.php');?>
+      <style>
+		.errorWrap {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #dd3d36;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  }
+  .succWrap{
+      padding: 10px;
+      margin: 0 0 20px 0;
+      background: #fff;
+      border-left: 4px solid #5cb85c;
+      -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  }
+		</style>
   </head>
 
-  <body>
+  <body >
       <section>
       <?php include('includes/header.php');?>
       </section>
@@ -57,17 +75,23 @@ $query -> bindParam(':uemail', $uemail, PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $cnt=1;
+?>
+<div class="container">
+<?php if($_GET['error']){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($_GET['error']); ?> </div><?php } 
+				else if($_GET['msg']){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($_GET['msg']); ?> </div><?php }?>
+
+</div>
+<?php
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
-$pkgid = $result->pkgid;
 {	?>
 <tr align="center">
 <td class="border-0 align-middle"><?php echo htmlentities($cnt);?></td>
 <td class="border-0 align-middle">#BK<?php echo htmlentities($result->bookid);?></td>
 <td class="border-0 align-middle"><a href="package-details.php?pkgid=<?php echo htmlentities($result->pkgid);?>"><?php echo htmlentities($result->packagename);?></a></td>
 <td class="border-0 align-middle"><?php echo htmlentities($result->pkgPrice);?></td>
-<td class="border-0 align-middle"><a a href="delete_fromCart.php?id=<?php echo $pkgid ?>" class="text-dark"><i class="fa fa-trash"></i></a></td>
+<td class="border-0 align-middle"><a a href="delete_fromCart.php?pkgid=<?php echo htmlentities($result->pkgid) ?>&&bkid=<?php echo htmlentities($result->bookid) ?>" class="text-dark"><i class="fa fa-trash"></i></a></td>
 
 <?php
     $amount += $result->pkgPrice;
@@ -90,7 +114,7 @@ $pkgid = $result->pkgid;
 
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong><?php $tax = $amount*0.1; echo "USD $tax"; ?></strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold"><?php $total = $amount + $tax; echo "USD $total"; ?></h5>
+                <h5 class="font-weight-bold" id ="amount"><?php $total = $amount + $tax; echo "USD $total"; ?></h5>
               </li>
               <?php if(!$total < 1){ ?>
             </ul><p style="text-align:center">Pay With</p>
