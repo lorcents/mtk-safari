@@ -41,6 +41,7 @@ paypal.Buttons({
                 }*/
                 alert (data);
                 console.log(payment_details);
+                window.location.replace('tour-history.php');
             });
         })
     },

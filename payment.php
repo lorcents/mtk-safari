@@ -65,6 +65,8 @@ if(!$_SESSION['login']){
                     }
                     if($result_book && $result_orders && $result_del === TRUE){
                         echo "Your payment was received Successfully!";
+                    }else{
+                        echo "Payment received Successfully but we encountered a problem updating it. Contact us for help !";
                     }
                 }//echo "Your payment was received Successfully!";
             }else{
